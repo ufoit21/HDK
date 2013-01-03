@@ -1,0 +1,23 @@
+<h1>Listing assigned_projects</h1>
+<div class="tblAs">
+<table>
+  <tr>
+    <th>User</th>
+    <th>Project</th>
+    <th colspan=3>Action</th>
+  </tr>
+
+<% @assigned_projects.each do |assigned_project| %>
+  <tr id="rowAS">
+    <td class="rowassign"><%= assigned_project.user_id %></td>
+    <td class="rowassign"><%= assigned_project.project_id %></td>
+    <td class="rowassign"><%= link_to 'Show', assigned_project %></td>
+    <td class="rowassign"><%= link_to 'Edit', edit_assigned_project_path(assigned_project) %></td>
+    <td class="rowassign"><%= link_to 'Destroy', assigned_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%= link_to 'New Assigned project', new_assigned_project_path %>

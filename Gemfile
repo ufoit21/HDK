@@ -22,9 +22,26 @@ end
 
 gem 'jquery-rails'
 
-group :test, :development do
-  gem "rspec-rails", "~> 2.0"
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara', '1.1.2'
+  
 end
+
+group :test, :development do
+  gem 'factory_girl_rails'
+end
+
+source 'https://rubygems.org'
+
+gem 'rails', '3.2.9'
+gem 'bootstrap-sass', '2.1'
+gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.0.1'
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

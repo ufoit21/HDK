@@ -1,0 +1,52 @@
+<%= form_for(@schedule) do |f| %>
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+      <% @schedule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :Month %><br />
+    <%= f.number_field :Month %>
+  </div>
+  <div class="field">
+    <%= f.label :week %><br />
+    <%= f.number_field :week %>
+  </div>
+  <div class="field">
+    <%= f.label :statue %><br />
+
+  <% if current_user.admin? %>
+    <%= f.select :statue, options_for_select([["drafting", "drafting"],["approved", "approved"]]) %>
+  <% else %>
+      <%= f.select :statue, options_for_select([["drafting", "drafting"]]) %>
+  <% end %>
+
+  </div>
+  <div class="field">
+    <%= f.label :plan_man_days %><br />
+    <%= f.number_field :plan_man_days %>
+  </div>
+  <div class="field">
+    <%= f.label :acctual_man_days %><br />
+    <%= f.number_field :acctual_man_days %>
+  </div>
+  <div class="field">
+    <%= f.label :assigned_project_id %><br />
+    <%= f.collection_select(:assigned_project_id, current_user.assigned_projects,:id,:id) %>
+  <!--   <%= f.number_field :assigned_project_id %> -->
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

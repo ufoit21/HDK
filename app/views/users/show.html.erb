@@ -1,0 +1,22 @@
+<div class="row">
+ 	 <aside class="span4">
+    	<section>
+	     	<h1>
+	      	 	<%= gravatar_for @user,size: 52 %>
+	       	 	<%= @user.name %>
+	      	</h1>
+   		</section>
+   		<section>
+	     	<h1>
+	     		<li> <span><%=link_to 'Schedules information' ,schedules_path %><span><li>
+	     		<li><%=link_to 'Projects information' ,projects_path %><li>
+	       	 <!-- 	<%@schedules=@user.schedules %>
+	       	 	<% if @schedules.any? %>
+	  				<ol class="schedules">
+	  				    <%= render :partial => "shared/schedule", :collection => @schedules, :as => :item %>
+	  				</ol>
+				<% end %> -->
+	      	</h1>
+   		</section>
+  	</aside>
+</div>
